@@ -4,7 +4,7 @@
 
 ​	**伪造源 IP 地址可以是一种隐蔽扫描的好方法**。然而，**伪造只在特定的网络环境下有效**。它**要求你处于能够监控流量的位置**。考虑到这些限制，**伪造 IP 地址的用途可能有限**；不过，我们可以**通过闲置扫描对其进行升级。**
 
-​	==空闲扫描，或称僵尸扫描，需要一个连接到网络且处于空闲状态的系统，您可以与之通信。==实际上，**Nmap 会使每个探测看起来像是来自空闲（僵尸）主机，然后检查空闲（僵尸）主机是否收到了伪造探测的任何响应。**这是**通过检查 IP 头中的 IP 标识（IP ID）值来实现的**。您可以使用 `nmap -sI ZOMBIE_IP 10.10.4.173` 运行空闲扫描，其中` ZOMBIE_IP `是空闲主机（僵尸）的 IP 地址。
+​	空闲扫描，或称僵尸扫描，需要一个连接到网络且处于空闲状态的系统，您可以与之通信。实际上，**Nmap 会使每个探测看起来像是来自空闲（僵尸）主机，然后检查空闲（僵尸）主机是否收到了伪造探测的任何响应。**这是**通过检查 IP 头中的 IP 标识（IP ID）值来实现的**。您可以使用 `nmap -sI ZOMBIE_IP 10.10.4.173` 运行空闲扫描，其中` ZOMBIE_IP `是空闲主机（僵尸）的 IP 地址。
 
 
 
@@ -50,7 +50,7 @@
 
 如果您希望 Nmap 提供更多关于其推理和结论的细节，您可以考虑添加 `--reason` 。请考虑下面对系统的两次扫描；然而，后者添加了 `--reason `
 
-```shell
+```powershell
 pentester@TryHackMe$ sudo nmap -sS 10.10.252.27
 
 Starting Nmap 7.60 ( https://nmap.org ) at 2021-08-30 10:39 BST
@@ -71,7 +71,7 @@ Nmap done: 1 IP address (1 host up) scanned in 1.60 seconds
 
 
 
-```shell
+```powershell
 pentester@TryHackMe$ sudo nmap -sS --reason 10.10.252.27
 
 Starting Nmap 7.60 ( https://nmap.org ) at 2021-08-30 10:40 BST
@@ -97,7 +97,7 @@ Nmap done: 1 IP address (1 host up) scanned in 1.59 seconds
 
 对于更详细的输出，您可以考虑使用 -v 以获得详细输出，或使用 -vv 以获得更详细的输出。
 
-```shell
+```powershell
 pentester@TryHackMe$ sudo nmap -sS -vv 10.10.252.27
 
 Starting Nmap 7.60 ( https://nmap.org ) at 2021-08-30 10:41 BST
